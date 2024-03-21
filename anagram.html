@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('coquette.jpg');
+        }
+    </style>
+</head>
+<body>
+    <h3 id="result"></h3>
+    <script>
+
+        function anagram(input1, input2) {
+            // this will convert the words into arrays of characters
+            let arr1 = input1.toLowerCase().split('');
+            let arr2 = input2.toLowerCase().split('');
+
+            // this will sort the arrays
+            arr1.sort();
+            arr2.sort();
+
+            // this will compare the length sorted arrays
+            if (arr1.length !== arr2.length) {
+                return false;
+            }
+
+            for (let i = 0; i < arr1.length; i++) {
+                if (arr1[i] !== arr2[i]) {
+                    return false; 
+                }
+            }
+
+            return true; 
+        }
+
+        // this prompts the user to input the words
+        var input1 = prompt("Please enter the first word: ");
+        var input2 = prompt("Please enter the word you'd like to compare the 1st word with: ");
+
+        // this will display the results
+        if (anagram(input1, input2)) {
+            alert(input1 + " & " + input2 + " are anagrams of each other");
+        } else {
+            alert(input1 + " & " + input2 + " are not anagrams of each other");
+        }
+    </script>
+</body>
+</html>
